@@ -291,7 +291,7 @@
   291  kubectl create deployment
   292  kubectl create deployment getting-started --image
   293  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started
-  294* kubectl 
+  294  kubectl 
   295  kubectl get pods
   296  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-starte
   297  kubectl create deployment bet --image https://hub.docker.com/r/pmorrissey7000/getting-starte
@@ -323,7 +323,7 @@
   323  kubectl get po
   324  kubectl get po
   325  kubectl get deployments
-  326* kubectl delete deployments tce-ngin
+  326  kubectl delete deployments tce-ngin
   327  kubectl get po
   328  pwd
   329  ls
@@ -377,65 +377,104 @@
   377  kubectl create deployment getting-startedx --image hub.docker.com/r/pmorrissey7000/getting-started:latest
   378  curl hub.docker.com/r/pmorrissey7000/getting-started:latest
   379  curl
-  380* 
-  381  q
-  382  kubectl get deployments
-  383  kubectl get po
-  384  kubectl delete deployments getting-startedx
-  385  history
-  386  history | grep docker
-  387  docker pull
-  388  docker pull getting-started pmorrissey7000/getting-started
-  389  docker pull pmorrissey7000/getting-started
-  390  history
-  391  kubectl create deployment getting-started --image pmorrissey7000/getting-started
+  380  q
+  381  kubectl get deployments
+  382  kubectl get po
+  383  kubectl delete deployments getting-startedx
+  384  history
+  385  history | grep docker
+  386  docker pull
+  387  docker pull getting-started pmorrissey7000/getting-started
+  388  docker pull pmorrissey7000/getting-started
+  389  history
+  390  kubectl create deployment getting-started --image pmorrissey7000/getting-started
+  391  kubectl get po
   392  kubectl get po
-  393  kubectl get po
-  394  pwd
-  395  kubectl port-forward getting-started 3000:3000
-  396  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
-  397  history
-  398  links2 localhost:3000
-  399  kube
-  400  kubectl run --restart=Never --image=gcr.io/kuar-demo/kuard-amd64:blue kuard
-  401  kubetcl get pods
-  402  kubectl get po
-  403  kubectl port-forward kuard 8080:8080
-  404  links2 localhost:8080
-  405  history | grep link
-  406  links2 localhost:3000
-  407  links2 http://localhost:3000
-  408  links2 http://localhost:8080
-  409  kubectl get po
-  410  tanzu  cluster
-  411  tanzu cluster get
-  412  histriy | grep forward
-  413  history | grep forward
-  414  pwd
-  415  history > paul.history
-  416  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
-  417  kubectl port-forward kuard 8080:8080
-  418  kubectl port-forward getting-started-5456ddb45c-gbh2j 3001:3000
-  419  docker ps
-  420  history | grep docker
-  421  docker ps
-  422  docker stop festive_davinci 
-  423  docker ps
-  424  tanzu get po
-  425  tanzu unmanaged-cluster
-  426  history | grep tanzu
-  427  tanzu unmanaged-cluster list
-  428  kubectl get po
-  429  history | grep link
-  430  links2 http://localhost:3000
-  431  ls
-  432  kubectl get pods
-  433  kubectl get pods -A
-  434  history | grep docker push
-  435  history | grep push
-  436  docker push pmorrissey/history
-  437  history | grep tag
-  438  ls h*
-  439  ls
-  440  docker tag paul.history pmorrissey7000/history
-  441  history > paul.history
+  393  pwd
+  394  kubectl port-forward getting-started 3000:3000
+  395  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
+  396  history
+  397  links2 localhost:3000
+  398  kube
+  399  kubectl run --restart=Never --image=gcr.io/kuar-demo/kuard-amd64:blue kuard
+  400  kubetcl get pods
+  401  kubectl get po
+  402  kubectl port-forward kuard 8080:8080
+  403  links2 localhost:8080
+  404  history | grep link
+  405  links2 localhost:3000
+  406  links2 http://localhost:3000
+  407  links2 http://localhost:8080
+  408  kubectl get po
+  409  tanzu  cluster
+  410  tanzu cluster get
+  411  histriy | grep forward
+  412  history | grep forward
+  413  pwd
+  414  history > paul.history
+  415  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
+  416  kubectl port-forward kuard 8080:8080
+  417  kubectl port-forward getting-started-5456ddb45c-gbh2j 3001:3000
+  418  docker ps
+  419  history | grep docker
+  420  docker ps
+  421  docker stop festive_davinci 
+  422  docker ps
+  423  tanzu get po
+  424  tanzu unmanaged-cluster
+  425  history | grep tanzu
+  426  tanzu unmanaged-cluster list
+  427  kubectl get po
+  428  history | grep link
+  429  links2 http://localhost:3000
+  430  ls
+  431  kubectl get pods
+  432  kubectl get pods -A
+  433  history | grep docker push
+  434  history | grep push
+  435  docker push pmorrissey/history
+  436  history | grep tag
+  437  ls h*
+  438  ls
+  439  docker tag paul.history pmorrissey7000/history
+  440  history > paul.history
+  441  code paul.history 
+  442  vim paul.history 
+  443  pwd
+  444  pwd
+  445  ls
+  446  cd paul
+  447  ls
+  448  kubectl get po
+  449  history } grep git
+  450  history
+  451  history | grep git
+  452  git clone https://github.com/xatilla/content
+  453  ls
+  454  cd content
+  455  cp ../paul.history .
+  456  git add .
+  457  git commit -m "add hist"
+  458  git config --global user.name xatilla
+  459  git commit -m "add hist"
+  460  git config --global user.email pmorro7000@gmail.com
+  461  git
+  462  git add .
+  463  git commit -m "add hist"
+  464  git push origin
+  465  history | grep git
+  466  gh
+  467  gh auth login
+  468  sudo snap install gh
+  469  gh auth login
+  470  git add .
+  471  git push origin
+  472  git push
+  473  gh config set
+  474  git
+  475  git status
+  476  git log
+  477  git push origin HEAD
+  478  ls
+  479  git push https://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@github.com/xatilla/content.git
+  480  history > paul.history
