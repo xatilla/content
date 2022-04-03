@@ -1,19 +1,3 @@
-   43  kubectl set context
-   44  tanzu cluster list
-   45  kubectl get pods
-   46  kubectl get pods -A
-   47  tanzu packaga availale list
-   48  tanzu package availale list
-   49  tanzu package available list
-   50  kubectl create deployment
-   51  kubectl create deployment getting-started --image
-   52  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started
-   53  kubectl 
-   54  kubectl get pods
-   55  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-starte
-   56  kubectl create deployment bet --image https://hub.docker.com/r/pmorrissey7000/getting-starte
-   57  kubectl get pods
-   58  kubectl delete po 
    59  kubectl delete pods
    60  kubectl delete pods bet-5f599b89b5-vdlg5
    61  kubectl delete pods bet-5f599b89b5-vdlg5
@@ -498,3 +482,19 @@
   540  ls
   541  history
   542  history > paul.history
+  543  history | grep git
+  544  git commit -m "add hist"
+  545  git add .
+  546  git push
+  547  history | grep push
+  548  git push https://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@github.com/xatilla/content.git
+  549  git push https://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@github.com/xatilla/content.git
+  550  git push origin HEAD
+  551  git push https://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@github.com/xatilla/content.git
+  552  history > paul.history
+  553  git commit -m "hist.apr2"
+  554  git push https://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@github.com/xatilla/content.git
+  555  history > paul.history
+  556* 
+  557  git push
+  558  history > paul.history
