@@ -1,480 +1,500 @@
-    1  printf 'blacklist nouveau\noptions nouveau modeset=0\n' | sudo tee -a /etc/modprobe.d/blacklist-nouveau.conf
-    2  sudo update-initramfs -u
-    3  sudo shutdown -r now
-    4  sudo apt-get install unzip
-    5  pwd
-    6  wget -O ngccli_linux.zip https://ngc.nvidia.com/downloads/ngccli_linux.zip && unzip -o ngccli_linux.zip && chmod u+x ngc
-    7  md5sum -c ngc.md5
-    8  echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.bash_profile && source ~/.bash_profile
-    9  ngc config set
-   10  ngc registry resource download-version "nvaie/vgpu_guest_driver:470.63.01-ubuntu20.04"
-   11  sudo apt-get update
-   12  sudo apt-get install build-essential
-   13  cd vgpu_guest_driver_v470.63.01-ubuntu20.04/
-   14  ls
-   15  sudo chmod +x NVIDIA-Linux-x86_64-470.63.01-grid.run
-   16  sudo sh ./NVIDIA-Linux-x86_64-470.63.01-grid.run
-   17  history
-   18  3
-   19  sudo shutdown -r now
-   20  nvidia-sim
-   21  nvidia-smi
-   22  ngc registry resource download-version "nvlp-aienterprise/licensetoken:1"
-   23  ls
-   24  sudo cp client_configuration_token.tok /etc/nvidia/ClientConfigToken/
-   25  sudo cp licensetoken_v1 /etc/nvidia/ClientConfigToken/
-   26  ls -al
-   27  cd licensetoken_v1/
-   28  ls
-   29  sudo cp licensetoken_v1 /etc/nvidia/ClientConfigToken/
-   30  sudo cp client_configuration_token.tok /etc/nvidia/ClientConfigToken/
-   31  sudo chmod +rw /etc/nvidia/ClientConfigToken/client_configuration_token.tok
-   32  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-   33  sudo nano /etc/nvidia/gridd.conf
-   34  more /etc/nvidia/gridd.conf
-   35  sudo systemctl restart nvidia-gridd
-   36   nvidia-smi -q |more
-   37  sudo apt-get update
-   38  sudo apt-get install -y     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
-   39  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-   40  sudo apt-key fingerprint 0EBFCD88
-   41  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   42  $(lsb_release -cs) \
-   43  stable"
-   44  sudo apt-get update
-   45  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-   46  sudo docker run hello-world
-   47  docker run -it ubuntu bash
-   48  sudo docker run -it ubuntu bash
-   49  hostname
-   50   distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-   51   curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-   52  curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-   53  sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
-   54  sudo systemctl restart docker
-   55  sudo usermod -aG docker $USER
-   56  docker run --gpus all nvidia/cuda:11.0-base nvidia-smi
-   57  docker run --gpus all nvidia/cuda:11.0-base nvidia-smi
-   58  docker login nvcr.io
-   59  docker login nvcr.io
-   60  mkdir ~/triton
-   61  docker pull nvcr.io/nvaie/tensorflow:21.07-tf1-py3
-   62  docker pull nvcr.io/nvaie/tritonserver:21.07-py3
-   63  git clone https://github.com/NVIDIA/DeepLearningExamples.git
-   64  cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
-   65  ls
-   66  ls b*
-   67  docker build -t bert_container .
-   68  docker ps
-   69  touch ~/jupyter-startup.sh
-   70  nano ~/jupyter-startup.sh
-   71  nano
-   72  ls
-   73  ls -al
-   74  more Dockerfile 
-   75  chmod +x ~/jupyter-startup.sh
-   76  sudo vim /etc/systemd/system/jupyter.service
-   77  sudo systemctl start jupyter.service
-   78  sudo systemctl enable jupyter.service
-   79  touch ~/triton-startup.sh
-   80  vim ~/triton-startup.sh
-   81  history
-   82  docker run ubuntu bash &
-   83  docker ps
-   84  docker
-   85  docker stats
-   86  docker ps
-   87  docker run ubuntu bash &
-   88  docker ps
-   89  docker
-   90  docker info
-   91  docker
-   92  history
-   93  pwd
-   94  cd /home/temp
-   95  ls
-   96  cd paul
-   97  mkdir paul
-   98  cd paul.
-   99  cd paul
-  100  git clone https://github.com/docker/getting-started/tree/master/app
-  101  git clone https://github.com/docker/getting-started/
-  102  ls
-  103  cd getting-started/
-  104  ls
-  105  cd app
-  106  ls
-  107  vim Dockerfile
-  108  docker build -t getting-started .
-  109  docker run -dp 3000:3000 getting-started
-  110  docker ps
-  111  curl
-  112  curl http://localhost:3000
-  113  history
-  114  docker run -d ubuntu bash
-  115  docker ps
-  116  docker run -dp 3000:3000 getting-started
-  117  links
-  118  sudo apt install links 
-  119  links
-  120  links http://localhost:3000
-  121  wget http://links.twibright.com/download/links-2.22.tar.gz
-  122  tar -xvf links-2.22.tar.gz
-  123  cd links-2.22
-  124  ./configure --enable-graphics
-  125  make
-  126  sudo apt install libpng
-  127  sudo apt get libpng
-  128  sudo apt-get libpng
-  129  history
-  130  sudo apt-get update
-  131  sudo apt-get install libpng
-  132  sudo apt-get install libpng-dev
-  133  sudo apt-get install libjpg
-  134  sudo apt-get install libjpg-dev
-  135  sudo apt-get install libjpeg
-  136  sudo apt-get install libjpeg-dev
-  137  ./configure --enable-graphics
-  138  sudo apt install links2
-  139  links2 www.google.com
-  140  links2 -g www.google.com
-  141  links2 localhost:3000
-  142  links2 http://localhost:3000
-  143  sudo apt install lynx 
-  144  lynx www.google.com
-  145  lynx http://localhost:3000
-  146  lynx http://localhost:3000
-  147  hostname
-  148  ipconfig
-  149  ifconfig
-  150  docker ps
-  151  ls
+   43  kubectl set context
+   44  tanzu cluster list
+   45  kubectl get pods
+   46  kubectl get pods -A
+   47  tanzu packaga availale list
+   48  tanzu package availale list
+   49  tanzu package available list
+   50  kubectl create deployment
+   51  kubectl create deployment getting-started --image
+   52  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started
+   53  kubectl 
+   54  kubectl get pods
+   55  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-starte
+   56  kubectl create deployment bet --image https://hub.docker.com/r/pmorrissey7000/getting-starte
+   57  kubectl get pods
+   58  kubectl delete po 
+   59  kubectl delete pods
+   60  kubectl delete pods bet-5f599b89b5-vdlg5
+   61  kubectl delete pods bet-5f599b89b5-vdlg5
+   62  kubectl delete pods getting-started-64bdcd68c8-zc5zl
+   63  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started:latest
+   64  kubectl get dep
+   65  kubectl get 
+   66  kubectl get
+   67  kubectl get -h
+   68  kubectl get deployments
+   69  kubectl delete deployments bet
+   70  kubectl delete deployments getting-started
+   71  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started:latest
+   72  kubectl get po
+   73  kubectl deployment tce-nginx --image harbor.mytanzu.com/tanzu/nginx:latest
+   74  kubectl create deployment tce-nginx --image harbor.mytanzu.com/tanzu/nginx:latest
+   75  kubectl get po
+   76  kubectl get po
+   77  kubectl delete deployments getting-started
+   78  kubectl get po
+   79  kubectl get po
+   80  kubectl create deployment getting-started --image hub.docker.com/r/pmorrissey7000/getting-started:latest
+   81  kubectl get po
+   82  kubectl get po
+   83  kubectl get po
+   84  kubectl get deployments
+   85  kubectl delete deployments tce-ngin
+   86  kubectl get po
+   87  pwd
+   88  ls
+   89  cd getting-started/
+   90  ls
+   91  cd app
+   92  ls
+   93  kubet
+   94  kubectl get po
+   95  kubectl describe getting-started-76b6d9bcc6-vkt8q
+   96  kubectl get po
+   97  kubectl describe getting-started-76b6d9bcc6-vkt8q
+   98  kubectl create secret docker-registry docker-hub \ 
+   99      --docker-username=YOURUSERNAME \ 
+  100      --docker-password=YOURPASSWORD \ 
+  101      --docker-password=YOURPASSWORD \ 
+  102  kubectl create secret docker-registry docker-hub \ 
+  103  kubectl create secret docker-registry docker-hub \ 
+  104  kubectl create secret docker-registry docker-hub --docker-username=pmorrissey7000 --docker-password=Pdroxypass8 --docker-server=docker.io
+  105  kubectl get po
+  106  kubectl create deployment getting-startedx --image hub.docker.com/r/pmorrissey7000/getting-started:latest
+  107  kubectl get po
+  108  kubectl delete deployments getting-started-76b6d9bcc6-vkt8q
+  109  docker login
+  110  ls
+  111  cd ..
+  112  cd ..
+  113  ls
+  114  kubectl list secret
+  115  kubectl
+  116  kubectl describe
+  117  kubectl describe secret
+  118  kubectl get po
+  119  kubectl get dep
+  120  kubectl get deployments
+  121  kubectl delete deployments getting-started
+  122  kubectl describe getting-startedx-6fdbc6949b-t62mj
+  123  kubectl unmanaged-cluster list
+  124  tanzu unmanaged-cluster list
+  125  tanzu unmanaged-cluster delete my-cluster
+  126  tanzu unmanaged-cluster list
+  127  tanzu 
+  128  tanzu secret
+  129  kubectl get po
+  130  kubectl describe getting-startedx-6fdbc6949b-t62mj
+  131  pwd
+  132  vim p.yaml
+  133  vim p.yaml
+  134  nano p.yaml
+  135  more p.yaml
+  136  kubectl create deployment getting-startedx --image hub.docker.com/r/pmorrissey7000/getting-started:latest
+  137  curl hub.docker.com/r/pmorrissey7000/getting-started:latest
+  138  curl
+  139  q
+  140  kubectl get deployments
+  141  kubectl get po
+  142  kubectl delete deployments getting-startedx
+  143  history
+  144  history | grep docker
+  145  docker pull
+  146  docker pull getting-started pmorrissey7000/getting-started
+  147  docker pull pmorrissey7000/getting-started
+  148  history
+  149  kubectl create deployment getting-started --image pmorrissey7000/getting-started
+  150  kubectl get po
+  151  kubectl get po
   152  pwd
-  153  cd ..
-  154  ls
-  155  cd src
-  156  ls
-  157  vim index.js 
-  158  ls
-  159  cd static/
-  160  ls
-  161  vim index.html 
-  162  ls
-  163  cd ..
-  164  ls
-  165  cd ..
-  166  ls
-  167  rm -r links*
-  168  ls
-  169  docker ps
-  170  docker stop
-  171  docker ps
-  172  docker stop affectionate_cohen 
-  173  docker ps
-  174  docker build -t getting-started .
-  175  docker run -dp 3000:3000 getting-started
-  176  lynx http://localhost:3000
-  177  docker push
-  178  docker push docker/getting-started
-  179  docker login -u temp
-  180  docker login -u pmorrissey7000
-  181  docker tag getting-started pmorrissey7000/getting-started
-  182  docker push docker/getting-started
-  183  docker push getting-started pmorrissey7000/getting-started
-  184  docker push pmorrissey7000/getting-started
-  185  docker run -d ubuntu bash -c "shuf -i 1-10000 -n 1 -o /data.txt && tail -f /dev/null"
-  186  docker ps
-  187  docker exec trusting_beaver 
-  188  docker exec trusting_beaver "cat /data.txt"
-  189  docker exec trusting_beaver cat /data.txt
-  190  docker volume create todo-db
-  191  docker ps
-  192  docker stop all
-  193  docker stop trusting_beaver 
-  194  docker stop zen_hamilton 
-  195  docker ps
-  196  docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started
-  197  docker volume inspect todo-db
-  198  cd ..
-  199  cd .
-  200  cd ..
-  201  pwd
-  202  brew
-  203  linuxbrew
-  204  os
-  205  whih
-  206  which
-  207  ls /etc
-  208  ls /etc/*-release
-  209  cat /etc/*-release
-  210  sudo apt update
-  211  sudo apt-get install build-essential
-  212  sudo apt install git -y
-  213  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  214  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  215  brew doctor
-  216  brew install vmware-tanzu/tanzu/tanzu-community-edition
-  217  /home/linuxbrew/.linuxbrew/Cellar/tanzu-community-edition/v0.11.0/libexec/configure-tce.sh
-  218  tanzu
-  219  tanzu unmanaged-cluster
-  220  tanzu unmanaged-cluster create my_cluster
-  221  tanzu unmanaged-cluster create my-cluster
-  222  tanzu 
-  223  tanzu kubernetes-release
-  224  tanzu kubernetes-release os
-  225  k get pods -A
-  226  kubectl get pods -A
-  227  tanzu
-  228  tanzu version
-  229  tanzu cluster
-  230  tanzu cluster list
-  231  kubectl
-  232  sudo map install kubectl
-  233  snap install kubectl
-  234  sudo snap install kubectl
-  235  tanzu
-  236  tanzu package
-  237  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-  238  curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-  239  echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-  240  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-  241  kubectl version --client
-  242  kubectl get pods -A
-  243  tanzu package available list
-  244  crane ls 
-  245  tanzu cluster
-  246  tanzu cluster get
-  247  tanzu cluster list
-  248  tanzu
-  249  tanzu unmanaged-cluster
-  250  tanzu unmanaged-cluster list
-  251  tanzu unmanaged-cluster delete my_cluster
-  252  tanzu unmanaged-cluster list
-  253  tanzu cluster 
-  254  tanzu cluster list
-  255  tanzu
-  256  tanzu unmanged-cluster configure awe.config
-  257  tanzu unmanaged-cluster configure awe.config
-  258  more awe.config.yaml
-  259  crane
-  260  sudo apt-get creane
-  261  sudo apt-get crane
+  153  kubectl port-forward getting-started 3000:3000
+  154  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
+  155  history
+  156  links2 localhost:3000
+  157  kube
+  158  kubectl run --restart=Never --image=gcr.io/kuar-demo/kuard-amd64:blue kuard
+  159  kubetcl get pods
+  160  kubectl get po
+  161  kubectl port-forward kuard 8080:8080
+  162  links2 localhost:8080
+  163  history | grep link
+  164  links2 localhost:3000
+  165  links2 http://localhost:3000
+  166  links2 http://localhost:8080
+  167  kubectl get po
+  168  tanzu  cluster
+  169  tanzu cluster get
+  170  histriy | grep forward
+  171  history | grep forward
+  172  pwd
+  173  history > paul.history
+  174  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
+  175  kubectl port-forward kuard 8080:8080
+  176  kubectl port-forward getting-started-5456ddb45c-gbh2j 3001:3000
+  177  docker ps
+  178  history | grep docker
+  179  docker ps
+  180  docker stop festive_davinci 
+  181  docker ps
+  182  tanzu get po
+  183  tanzu unmanaged-cluster
+  184  history | grep tanzu
+  185  tanzu unmanaged-cluster list
+  186  kubectl get po
+  187  history | grep link
+  188  links2 http://localhost:3000
+  189  ls
+  190  kubectl get pods
+  191  kubectl get pods -A
+  192  history | grep docker push
+  193  history | grep push
+  194  docker push pmorrissey/history
+  195  history | grep tag
+  196  ls h*
+  197  ls
+  198  docker tag paul.history pmorrissey7000/history
+  199  history > paul.history
+  200  code paul.history 
+  201  vim paul.history 
+  202  pwd
+  203  pwd
+  204  ls
+  205  cd paul
+  206  ls
+  207  kubectl get po
+  208  history } grep git
+  209  history
+  210  history | grep git
+  211  git clone https://github.com/xatilla/content
+  212  ls
+  213  cd content
+  214  cp ../paul.history .
+  215  git add .
+  216  git commit -m "add hist"
+  217  git config --global user.name xatilla
+  218  git commit -m "add hist"
+  219  git config --global user.email pmorro7000@gmail.com
+  220  git
+  221  git add .
+  222  git commit -m "add hist"
+  223  git push origin
+  224  history | grep git
+  225  gh
+  226  gh auth login
+  227  sudo snap install gh
+  228  gh auth login
+  229  git add .
+  230  git push origin
+  231  git push
+  232  gh config set
+  233  git
+  234  git status
+  235  git log
+  236  git push origin HEAD
+  237  ls
+  238  git push https://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@github.com/xatilla/content.git
+  239  history > paul.history
+  240  git add .
+  241  git commit -m "add hist with git cmds"
+  242  git push https://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@github.com/xatilla/content.git
+  243  pwd
+  244  cd ..
+  245  ls
+  246  docker ps
+  247  kubectl get po
+  248  kubectl get nodes
+  249  tanzu 
+  250  tanzu
+  251  pwd
+  252  history } grep echi
+  253  history } grep echo
+  254  history
+  255  tanzu unmanaged-cluster
+  256  exit
+  257  tanzu
+  258  kubectl
+  259  tanzu
+  260  history
+  261  /home/linuxbrew/.linuxbrew/Cellar/tanzu-community-edition/v0.11.0/libexec/configure-tce.sh
   262  history
-  263  sudo apt-get install crane
-  264  sudo apt-get update
-  265  sudo apt-get install crane
-  266  brew tap tsuru/homebrew-tsuru
-  267  brew install crane
-  268  crane
-  269  crane ls projects.registry.vmware.com/tce/tkr
-  270  vim awe.config.yaml 
-  271  tanzu unmanaged-cluster create -c awe.config.yaml awe-cluster
-  272  kubectl get po -A
+  263  docker ps
+  264  brew install vmware-tanzu/tanzu/tanzu-community-edition
+  265  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  266  brew
+  267  tanzu
+  268  tanzu package
+  269  tanzu list packages
+  270  history | grep list
+  271  tanzu package available list
+  272  tanzu package available list
   273  tanzu unmanaged-cluster list
-  274  kubectl
-  275  kubectl unmanaged-cluster
-  276  tanzu unmanaged-cluster delete awe-cluster
-  277  vim awe.config.yaml 
-  278  crane ls projects.registry.vmware.com/tce/main
-  279  vim awe.config.yaml 
-  280  tanzu unmanaged-cluster create --tkr projects.registry.vmware.com/tce/tkr:v1.21.5 awe-cluster
-  281  tanzu login
-  282  tanzu unmanaged-cluster list
-  283  kubectl set
-  284  kubectl set context
-  285  tanzu cluster list
-  286  kubectl get pods
-  287  kubectl get pods -A
-  288  tanzu packaga availale list
-  289  tanzu package availale list
-  290  tanzu package available list
-  291  kubectl create deployment
-  292  kubectl create deployment getting-started --image
-  293  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started
-  294  kubectl 
-  295  kubectl get pods
-  296  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-starte
-  297  kubectl create deployment bet --image https://hub.docker.com/r/pmorrissey7000/getting-starte
-  298  kubectl get pods
-  299  kubectl delete po 
-  300  kubectl delete pods
-  301  kubectl delete pods bet-5f599b89b5-vdlg5
-  302  kubectl delete pods bet-5f599b89b5-vdlg5
-  303  kubectl delete pods getting-started-64bdcd68c8-zc5zl
-  304  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started:latest
-  305  kubectl get dep
-  306  kubectl get 
-  307  kubectl get
-  308  kubectl get -h
-  309  kubectl get deployments
-  310  kubectl delete deployments bet
-  311  kubectl delete deployments getting-started
-  312  kubectl create deployment getting-started --image https://hub.docker.com/r/pmorrissey7000/getting-started:latest
-  313  kubectl get po
-  314  kubectl deployment tce-nginx --image harbor.mytanzu.com/tanzu/nginx:latest
-  315  kubectl create deployment tce-nginx --image harbor.mytanzu.com/tanzu/nginx:latest
+  274  tanzu
+  275  tanzu version
+  276  history | grep history
+  277  history | more
+  278  tanzu unmanaged-cluster
+  279  brew install vmware-tanzu/tanzu/tanzu-community-edition
+  280  tanzu unmanaged-cluster
+  281  /home/linuxbrew/.linuxbrew/Cellar/tanzu-community-edition/v0.11.0/libexec/configure-tce.sh
+  282  tanzu unmanaged-cluster
+  283  tanzu unmanaged-cluster list
+  284  tanzu
+  285  tanzu cluster
+  286  tanzu cluster create badass
+  287  ls
+  288  pwd
+  289  cd paul
+  290  ls
+  291  vim awe.config.yaml 
+  292  co awe.config.yaml badass.yaml
+  293  cp awe.config.yaml badass.yaml
+  294  tanzu cluster create -f badass.yaml
+  295  tanzu cluster create badass -f badass.yaml
+  296  tanzu login
+  297  docker ps
+  298  tanzu unmanaged-cluster list
+  299  kubectl get po -A
+  300  kubectl config
+  301  kubectl config get-contexts
+  302  tanzu unmanaged-cluster list
+  303  kubectl create ns yelb
+  304  ls
+  305  kubectl get po
+  306  git clone https://github.com/mohanadelamin/yelb.git
+  307  cd yelb/
+  308  cd yelb/
+  309  kubectl create namespace yelb
+  310  kubectl get deployments
+  311  kubectl get service
+  312  kubectl get deployments
+  313  ls
+  314  more yelb.yaml 
+  315   kubectl apply -f yelb.yaml
   316  kubectl get po
-  317  kubectl get po
-  318  kubectl delete deployments getting-started
-  319  kubectl get po
-  320  kubectl get po
-  321  kubectl create deployment getting-started --image hub.docker.com/r/pmorrissey7000/getting-started:latest
-  322  kubectl get po
-  323  kubectl get po
-  324  kubectl get po
-  325  kubectl get deployments
-  326  kubectl delete deployments tce-ngin
-  327  kubectl get po
-  328  pwd
-  329  ls
-  330  cd getting-started/
-  331  ls
-  332  cd app
-  333  ls
-  334  kubet
-  335  kubectl get po
-  336  kubectl describe getting-started-76b6d9bcc6-vkt8q
-  337  kubectl get po
-  338  kubectl describe getting-started-76b6d9bcc6-vkt8q
-  339  kubectl create secret docker-registry docker-hub \ 
-  340      --docker-username=YOURUSERNAME \ 
-  341      --docker-password=YOURPASSWORD \ 
-  342      --docker-password=YOURPASSWORD \ 
-  343  kubectl create secret docker-registry docker-hub \ 
-  344  kubectl create secret docker-registry docker-hub \ 
-  345  kubectl create secret docker-registry docker-hub --docker-username=pmorrissey7000 --docker-password=Pdroxypass8 --docker-server=docker.io
-  346  kubectl get po
-  347  kubectl create deployment getting-startedx --image hub.docker.com/r/pmorrissey7000/getting-started:latest
-  348  kubectl get po
-  349  kubectl delete deployments getting-started-76b6d9bcc6-vkt8q
-  350  docker login
-  351  ls
-  352  cd ..
-  353  cd ..
-  354  ls
-  355  kubectl list secret
-  356  kubectl
-  357  kubectl describe
-  358  kubectl describe secret
-  359  kubectl get po
-  360  kubectl get dep
-  361  kubectl get deployments
-  362  kubectl delete deployments getting-started
-  363  kubectl describe getting-startedx-6fdbc6949b-t62mj
-  364  kubectl unmanaged-cluster list
-  365  tanzu unmanaged-cluster list
-  366  tanzu unmanaged-cluster delete my-cluster
-  367  tanzu unmanaged-cluster list
-  368  tanzu 
-  369  tanzu secret
-  370  kubectl get po
-  371  kubectl describe getting-startedx-6fdbc6949b-t62mj
-  372  pwd
-  373  vim p.yaml
-  374  vim p.yaml
-  375  nano p.yaml
-  376  more p.yaml
-  377  kubectl create deployment getting-startedx --image hub.docker.com/r/pmorrissey7000/getting-started:latest
-  378  curl hub.docker.com/r/pmorrissey7000/getting-started:latest
-  379  curl
-  380  q
-  381  kubectl get deployments
-  382  kubectl get po
-  383  kubectl delete deployments getting-startedx
-  384  history
-  385  history | grep docker
-  386  docker pull
-  387  docker pull getting-started pmorrissey7000/getting-started
-  388  docker pull pmorrissey7000/getting-started
-  389  history
-  390  kubectl create deployment getting-started --image pmorrissey7000/getting-started
-  391  kubectl get po
-  392  kubectl get po
-  393  pwd
-  394  kubectl port-forward getting-started 3000:3000
-  395  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
-  396  history
-  397  links2 localhost:3000
-  398  kube
-  399  kubectl run --restart=Never --image=gcr.io/kuar-demo/kuard-amd64:blue kuard
-  400  kubetcl get pods
-  401  kubectl get po
-  402  kubectl port-forward kuard 8080:8080
-  403  links2 localhost:8080
-  404  history | grep link
-  405  links2 localhost:3000
-  406  links2 http://localhost:3000
-  407  links2 http://localhost:8080
-  408  kubectl get po
-  409  tanzu  cluster
-  410  tanzu cluster get
-  411  histriy | grep forward
-  412  history | grep forward
+  317  kubectl -n yelb get pods
+  318  kubectl -n yelb get deployments
+  319  kubectl -n yelb delete deployments yelb
+  320  more yelb.yaml 
+  321  kubectl get po -A
+  322  kubectl -n yelb get svc/yelb-ui
+  323  links localhost:80
+  324  kubectl -n yelb get svc/yelb-ui
+  325  links localhost:30001
+  326  kubectl -n yelb get svc/yelb-ui
+  327  kubectl -n yelb get svc
+  328  history | grep links
+  329  links www.google.com
+  330  kubectl -n yelb get svc
+  331  links http://10.96.245.137
+  332  links http://localhost
+  333  links http://localhost:80
+  334  ipconfig
+  335  ifconfig
+  336  hostname -a
+  337  hostname
+  338  kubectl -n yelb get svc
+  339  kubectl -n yelb get svc -a
+  340  kubectl -n yelb get svc -A
+  341  links http://10.96.245.137:80
+  342  kubectl -n yelb get svc -A
+  343  links http://10.96.245.137:30001
+  344  links http://localhost:30001
+  345  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') | grep "Node:
+  346  /
+  347  q
+  348  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') 
+  349  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') grep "Node:"
+  350  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') | grep "Node:"
+  351  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') 
+  352   kubectl delete -f yelb.yaml
+  353  kubectl get po -A
+  354  kubectl get po -A
+  355  kubectl get sve -A
+  356  kubectl get svc -A
+  357  kubectl get po -A
+  358  kubectl -n yelb get svc
+  359  kubectl -n yelb get svc/yelb-ui
+  360  history
+  361   kubectl delete -f yelb.yaml
+  362  kubectl get po -A
+  363  kubectl get deployment -A
+  364  kubectl delete ns yelb
+  365  kubectl get po -A
+  366  ls 
+  367  more yelb.yml
+  368  ls
+  369  more yelb.yaml 
+  370  more yelb.yaml 
+  371  ls
+  372  cd ..
+  373  history } grep git
+  374  history | grep git
+  375  git
+  376  rm -r yelb
+  377  rm -r 
+  378  rm --help
+  379  rm -rf yelb
+  380  kubectl apply -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb.yaml
+  381  kubectl create ns yelb
+  382  kubectl apply -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb.yaml
+  383  kubectl get po -A
+  384  kubectl get svc -A
+  385  links http://localhost:30001
+  386  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') | grep "Node:
+  387  q
+  388  kubectl -n yelb describe pod $(kubectl -n yelb get pods | grep yelb-ui | awk '{print $1}') 
+  389  pwd
+  390  cd ..
+  391  ls
+  392  pwd
+  393  cd paul/
+  394  ls
+  395  cd getting-started/
+  396  ls
+  397  cd app
+  398  ls
+  399  cd spec
+  400  ls
+  401  cd ..
+  402  ls
+  403  cd ..
+  404  ls
+  405  cd ..
+  406  ls
+  407  kubectl apply -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb-lb.yaml
+  408  kubectl -n yelb get svc
+  409  kubectl delete -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb-lb.yaml
+  410  kubectl delete ns yelb
+  411  history | getting
+  412  history | grep getting
   413  pwd
-  414  history > paul.history
-  415  kubectl port-forward getting-started-5456ddb45c-gbh2j 3000:3000
-  416  kubectl port-forward kuard 8080:8080
-  417  kubectl port-forward getting-started-5456ddb45c-gbh2j 3001:3000
-  418  docker ps
-  419  history | grep docker
-  420  docker ps
-  421  docker stop festive_davinci 
-  422  docker ps
-  423  tanzu get po
-  424  tanzu unmanaged-cluster
-  425  history | grep tanzu
-  426  tanzu unmanaged-cluster list
-  427  kubectl get po
-  428  history | grep link
-  429  links2 http://localhost:3000
-  430  ls
-  431  kubectl get pods
-  432  kubectl get pods -A
-  433  history | grep docker push
-  434  history | grep push
-  435  docker push pmorrissey/history
-  436  history | grep tag
-  437  ls h*
-  438  ls
-  439  docker tag paul.history pmorrissey7000/history
-  440  history > paul.history
-  441  code paul.history 
-  442  vim paul.history 
-  443  pwd
-  444  pwd
-  445  ls
-  446  cd paul
+  414  ls
+  415  cd getting-started/
+  416  ls
+  417  kubens
+  418  kubectl ns
+  419  kubectl get ns -A
+  420  kubectl get po -A
+  421  kubec
+  422  kubectl apply -f https://github.com/lamw/yelb/blob/master/deployments/platformdeployment/Kubernetes/yaml/yelb-k8s-minikube-nodeport.yaml
+  423  kubectl apply -f https://raw.githubusercontent.com/lamw/vmware-k8s-app-demo/master/yelb.yaml
+  424  tanzu available package list
+  425  tanzu list
+  426  anzu
+  427  tanzu
+  428  tanzu package available list
+  429   netstat -tulpn
+  430  lsof
+  431  lsof -i -P -n
+  432  sudo lsof -i -P -n
+  433  history | getting
+  434  history | grep getting
+  435  docker run -dp 3000:3000 getting-started
+  436  sudo lsof -i -P -n
+  437  docker delete -dp 3000:3000 getting-started
+  438  docker delete getting-started
+  439  docker
+  440  history | grep getting
+  441  docker stop getting-started
+  442  docker ps
+  443  docker stop dreamy_ellis 
+  444  sudo lsof -i -P -n
+  445  sudo lsof -i -P -n
+  446  pwd
   447  ls
-  448  kubectl get po
-  449  history } grep git
-  450  history
-  451  history | grep git
-  452  git clone https://github.com/xatilla/content
-  453  ls
-  454  cd content
-  455  cp ../paul.history .
-  456  git add .
-  457  git commit -m "add hist"
-  458  git config --global user.name xatilla
-  459  git commit -m "add hist"
-  460  git config --global user.email pmorro7000@gmail.com
-  461  git
-  462  git add .
-  463  git commit -m "add hist"
-  464  git push origin
-  465  history | grep git
-  466  gh
-  467  gh auth login
-  468  sudo snap install gh
-  469  gh auth login
-  470  git add .
-  471  git push origin
-  472  git push
-  473  gh config set
-  474  git
-  475  git status
-  476  git log
-  477  git push origin HEAD
-  478  ls
-  479  git push https://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@github.com/xatilla/content.git
-  480  history > paul.history
+  448  cd ap
+  449  cd app
+  450  ls
+  451  more Dockerfile 
+  452  more package.json 
+  453   ls
+  454  cd .cd spec
+  455  cd spec
+  456  ls
+  457  cd ..
+  458  ls
+  459  cd ..
+  460  s
+  461  ls
+  462  cd app
+  463  ls
+  464  cd src
+  465  ls
+  466  ls
+  467  history | grep getting
+  468  cd ..
+  469  cd ..
+  470  vim getting-started.yaml
+  471  kubectl apply -f getting-started.yml
+  472  kubectl apply -f getting-started.yaml
+  473  vim getting-started.yaml
+  474  kubectl apply -f getting-started.yaml
+  475  vim getting-started.yaml
+  476  vim getting-started.yaml
+  477  kubectl apply -f getting-started.yaml
+  478  kubectl get po -A
+  479  kubectl get deployments -A
+  480  kubectl apply -f getting-started.yaml --save-config
+  481  kubectl apply -f getting-started.yaml
+  482  kubectl get deployment -A
+  483  docker login
+  484  kubectl apply -f getting-started.yaml
+  485  kubectl delete  -f getting-started.yaml
+  486  kubectl apply -f getting-started.yaml
+  487  kubectl get deployments -A
+  488  ls
+  489  more getting-started.yaml
+  490  history | grep registry
+  491  vim getting-started.yaml
+  492  kubectl apply -f getting-started.yaml
+  493  kubectl get deployments -A
+  494  kubectl get po -A
+  495  history
+  496  kubectl get po -A
+  497  history | grep getting
+  498  kubectl create deployment getting-started --image pmorrissey7000/getting-started
+  499  history
+  500  kubectl get deployments -A
+  501  kubectl delete deployment getting-started
+  502  kubectl get po -A
+  503  kubectl create deployment getting-started --image pmorrissey7000/getting-started
+  504  kubectl get po -A
+  505  history | grep sudo
+  506  sudo lsof -i -P -n
+  507  kubectl delete deployment getting-started --image pmorrissey7000/getting-started
+  508  kubectl delete deployment getting-started 
+  509  pwd
+  510  cd paul
+  511  ls
+  512  cd getting-started/
+  513  ls
+  514  vim getting-started.yaml 
+  515  vim getting-started.yaml 
+  516  history
+  517  kubectl apply -f getting-started.yaml
+  518  kubectl describe deployment getting-started
+  519  sudo lsof -i -P -n
+  520  kubectl get po -A
+  521  kubectl get po -l getting-started
+  522  kubectl get po -l app=getting-started
+  523  kubectl describe pod getting-started.yaml
+  524  kubectl describe pod getting-started-5f5c7b7854-2qw74
+  525  kubectl get service
+  526  links http://localhost:31543
+  527  kubectl get service
+  528  kubectl get pod mongo-75f59d57f4-4nd6q --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
+  529  kubectl get po
+  530  kubectl get pod getting-started-5f5c7b7854-2qw74 --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
+  531  kubectl port-forward getting-started-5f5c7b7854-2qw74 30001:80
+  532  history
+  533  kubectl get service
+  534  kubectl apply -f getting-started.yaml
+  535  kubectl get service -A
+  536  history
+  537  pwd
+  538  cd ..
+  539  cd content/
+  540  ls
+  541  history
+  542  history > paul.history
